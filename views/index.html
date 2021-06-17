@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="./js/html2canvas.js"></script>
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <link href="./css/indexStyle.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="inputDiv">
+            <from>
+                <input id="saying" placeholder="명언" type="text">
+                <input id="name" placeholder="이름" type="text">
+                <button id="make" type="submit">만들기</button>
+            </from>
+        </div>
+        <div id="capture">
+            <img src="./image/so.png">
+            <div id="wiseSayingDiv">가나다라마바사</div>
+            <div id="nameDiv">-신상우</div>
+        </div>
+        <div id="result">
+
+        </div>
+    </body>
+    <script>
+        $("#capture").css("display", "none");
+        $("#make").click(() => {
+            $("#capture").css("display", "block");
+
+            $("#wiseSayingDiv").html($("#saying").val());
+            $("#wiseSayingDiv").css("margin-top", ($("#capture").height()/2 - $("#wiseSayingDiv").height() / 2) + "px");
+
+            $("#nameDiv").html($("#name").val());
+            $("#nameDiv").css("margin-top", (10 + $("#wiseSayingDiv").height() + $("#wiseSayingDiv").css("margin-top").replace("px", "")*1) + "px");
+            
+            html2canvas(document.querySelector("#capture")).then(canvas => {
+                $("#result").html(canvas);
+                $("#capture").css("display", "none");
+            });
+        });
+    </script>
+</html>

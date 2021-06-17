@@ -1,0 +1,25 @@
+{
+  "name": "wisemaker",
+  "version": "1.0.0",
+  "description": "wise saying maker",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sinsang/wiseMaker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sinsang/wiseMaker/issues"
+  },
+  "homepage": "https://github.com/sinsang/wiseMaker#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "html": "^1.0.0",
+    "html2canvas": "^1.0.0-rc.7"
+  }
+}
