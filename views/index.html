@@ -14,11 +14,12 @@
                 <input id="name" placeholder="이름" type="text">
                 <button id="make" type="submit">만들기</button>
             </from>
+            짤 우클릭 후 이미지 저장이나 복사가 가능합니다.
         </div>
         <div id="capture">
             <img id="wisePeopleImg" src="./image/0.png">
-            <div id="wiseSayingDiv">가나다라마바사</div>
-            <div id="nameDiv">-신상우</div>
+            <div id="wiseSayingDiv">명언 제조기다.</div>
+            <div id="nameDiv">made by sinsang</div>
         </div>
         <div id="result">
 
@@ -31,7 +32,17 @@
             return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
         }
 
-        $("#capture").css("display", "none");
+        $(window).ready(() => {
+            $("#wisePeopleImg").attr("src", "./image/" + getRandomInt(0,4) + ".png");
+            $("#wiseSayingDiv").css("margin-top", ($("#capture").height()/2 - $("#wiseSayingDiv").height() / 2) + "px");
+            $("#nameDiv").css("margin-top", (10 + $("#wiseSayingDiv").height() + $("#wiseSayingDiv").css("margin-top").replace("px", "")*1) + "px");       
+            
+            html2canvas(document.querySelector("#capture")).then(canvas => {
+                $("#result").html(canvas);
+                $("#capture").css("display", "none");
+            });
+        });
+
         $("#make").click(() => {
             $("#capture").css("display", "block");
         

@@ -5,6 +5,14 @@
     font-style: normal;
 }
 
+#inputDiv {
+    margin-bottom: 30px;
+}
+
+#saying {
+    width: 300px;
+}
+
 #capture {
     width: 600px;
     height: 400px;
