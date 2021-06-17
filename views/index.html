@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <title>띵언짤 제조기</title>
         <script src="./js/html2canvas.js"></script>
         <script src="./js/jquery-3.6.0.min.js"></script>
         <link href="./css/indexStyle.css" rel="stylesheet" type="text/css">
@@ -15,7 +16,7 @@
             </from>
         </div>
         <div id="capture">
-            <img src="./image/so.png">
+            <img id="wisePeopleImg" src="./image/0.png">
             <div id="wiseSayingDiv">가나다라마바사</div>
             <div id="nameDiv">-신상우</div>
         </div>
@@ -24,10 +25,18 @@
         </div>
     </body>
     <script>
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+        }
+
         $("#capture").css("display", "none");
         $("#make").click(() => {
             $("#capture").css("display", "block");
-
+        
+            $("#wisePeopleImg").attr("src", "./image/" + getRandomInt(0,4) + ".png");
+        
             $("#wiseSayingDiv").html($("#saying").val());
             $("#wiseSayingDiv").css("margin-top", ($("#capture").height()/2 - $("#wiseSayingDiv").height() / 2) + "px");
 
